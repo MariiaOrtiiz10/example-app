@@ -1,0 +1,16 @@
+λ php artisan tinker
+Psy Shell v0.12.7 (PHP 8.3.16 — cli) by Justin Hileman
+PARA INSERTAR DATOS
+>App\Models\Trabajo::create(['title' => 'Medico' , 'salary' => '54.500 €']);
+SELECT * FROM Trabajo ==  App\Models\Trabajo::all();
+$job = App\Models\Trabajo::find(id);
+
+PARA CREAR UNA NUEVA MIGRACION ES 
+php artisan make:migration create_nombre_table
+
+Para crear un nuevo modelo:
+php artisan make:model nombre
+pero para crear modelo + migration
+php artisan make:model nombre -m
+Para generar todo(migration,seeder,factory,policy,resource,controller, and form request clases(form)):
+php artisan make:model nombre -a

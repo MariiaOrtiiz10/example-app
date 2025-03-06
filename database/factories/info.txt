@@ -1,0 +1,45 @@
+Una fabrica se usa para cualquier situación donde 
+necesitemos rápidamnete crear o generar algo. 
+En eset caso un usuario.
+Para crear una fabrica
+php artisan make:factory nombre
+
+λ php artisan tinker
+Psy Shell v0.12.7 (PHP 8.3.16 — cli) by Justin Hileman
+> App\Models\User::factory()->create() --> Esto generaria 1 registro, segun el numero que pongas en el parámtetro de factory(int), genera esoso registros 
+= App\Models\User {#5284
+    name: "Soledad",
+    surname: "Shanahan",
+    email: "ivy94@example.net",
+    email_verified_at: "2025-03-06 11:40:55",
+    #password: "$2y$12$jyI5WQFqwFLzHkeCV5gT9eFKzoUdEoiOdIfi1MapkbgYDzlzsuI6m",
+    #remember_token: "xB0rLXgCln",
+    updated_at: "2025-03-06 11:40:56",
+    created_at: "2025-03-06 11:40:56",
+    id: 1,
+  }
+Crea un nuevo registro dentro de la table de usuarios, y devuelve una nueva instancia de ese usuario.
+
+
+//METODO UNVERIFIED, es decir para poner que el email no esta verificado.(lo hace el metodo unverified)
+> App\Models\User::factory()->unverified()->create()
+= App\Models\User {#5400
+    name: "Victoria",
+    surname: "Ritchie",
+    email: "cquitzon@example.com",
+    email_verified_at: null,
+    #password: "$2y$12$iCIaVvCOek9H7jjwg5UGj.m04IfsvHRNzs9NCnKmhWuaHvN2HKGN.",
+    #remember_token: "cz9erjBLeO",
+    updated_at: "2025-03-06 12:05:19",
+    created_at: "2025-03-06 12:05:19",
+    id: 2,
+  }
+
+Para  Borra todos los registros y reinicia los IDs a 1.
+App\Models\Trabajo::truncate();
+
+Borra todos los registros pero NO reinicia los IDs.
+App\Models\Trabajo::query()->delete();
+
+elimianar filtrando los registros.
+App\Models\Trabajo::where('id', '>=', 1)->delete();

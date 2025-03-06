@@ -1,25 +1,30 @@
 <?php
 
+use App\Models\Trabajo;
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
+
 
 //Se puede devolver página
 Route::get('/', function () {
-    return view('home',[
+     return view('home',[
         'one'=> '1', //varaible llamada $1,
         'name' => 'Maria',
-    ]);
+     ]);
 });
 Route::get('/jobs', function () {
     return view('jobs',[
-        'jobs' => Job::allJobs()
+        'jobs' => Trabajo::all()
        
     ]);
 });
-Route::get('/jobs/{ID}', function ($ID) {
-      $job =  Job::findJobById($ID);    
+Route::get('/jobs/{id}', function ($ID) {
+      $job =  Trabajo::find($ID);   
+      if (!$job) {
+        abort(404); // Devuelve un error 404 si el trabajo no existe
+    } 
       return view('job',['job' => $job]);
 });
+
 Route::get('/contact', function () {
     return view('contact');
 });

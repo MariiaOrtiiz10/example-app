@@ -1,7 +1,7 @@
 <?php
 namespace App\Models;//Para organizar el codigo
 use Illuminate\Support\Arr;  
-class Job{
+class Job1{
     public static function allJobs(){
         return  
         [
