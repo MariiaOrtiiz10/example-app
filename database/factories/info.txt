@@ -43,3 +43,16 @@ App\Models\Trabajo::query()->delete();
 
 elimianar filtrando los registros.
 App\Models\Trabajo::where('id', '>=', 1)->delete();
+
+
+//Para consultar al empleado desde jobs
+php artisan tinker
+$job = App\Models\Trabajo::first();
+informacion entera
+$job->employer (employer es la función que tengo en trabajo)
+Solo el nombre
+$job->employer->name
+
+//Al reves desde employer
+$employer = App\Model\Employer::first();
+$employer->jobs
