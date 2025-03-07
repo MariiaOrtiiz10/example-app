@@ -11,12 +11,24 @@ Route::get('/', function () {
         'name' => 'Maria',
      ]);
 });
+//SOBREECRAGA LA MEMORIA RAM CON MUCHAS CONSULTAS SELEECT * DORM .. WHERE ID = ...; segun los id de employer que haya una consulta
+// Route::get('/jobs', function () {
+//     $jobs = Trabajo::all();
+//     return view('jobs',[
+//         'jobs' => $jobs
+//     ]);
+// });
+
+//Solo dos consultas.
+//select * from job_listing
+//slect * from employer where employers.id in (1,2,, ...ids)
 Route::get('/jobs', function () {
+    $jobs = Trabajo::with('employer')->get();
     return view('jobs',[
-        'jobs' => Trabajo::all()
-       
+        'jobs' => $jobs
     ]);
 });
+
 Route::get('/jobs/{id}', function ($ID) {
       $job =  Trabajo::find($ID);   
       if (!$job) {

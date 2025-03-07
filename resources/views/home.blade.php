@@ -3,6 +3,7 @@
     <h1>Home page</h1>
     <h2>{{$one}}-> Name: {{$name}}.</h2>
     </br>
+    <h1>hola</h1>
    
 </x-layout> 
 
