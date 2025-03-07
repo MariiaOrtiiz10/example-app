@@ -9,7 +9,7 @@ class Employer extends Model
 {
     use HasFactory;
     public function jobs(){
-        //un empleado puede tener varios trabajos(belongsToMany).
+        //un empleado puede tener varios trabajos(hasMany).
         return $this->hasMany(Trabajo::class);
      }
 }

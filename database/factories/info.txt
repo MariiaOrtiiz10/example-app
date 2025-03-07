@@ -56,3 +56,12 @@ $job->employer->name
 //Al reves desde employer
 $employer = App\Model\Employer::first();
 $employer->jobs
+
+//Para adjuntar nuevos resgistros de job_tag
+$tag = App\Models\Tag::find(1)
+$tag->jobs()->attach(id del trabajo)
+Esto añaderia un registro al id 1 del tag con el id que hayas indicado del trabajo
+Ahora para  poder obtener todos
+$tag->jobs()->get()
+//Para capturar el titulo
+$tag->jobs()->get()->pluck('title')

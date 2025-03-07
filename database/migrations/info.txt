@@ -14,3 +14,7 @@ pero para crear modelo + migration
 php artisan make:model nombre -m
 Para generar todo(migration,seeder,factory,policy,resource,controller, and form request clases(form)):
 php artisan make:model nombre -a
+
+
+para usar down, y usar el dropif exists:
+php artisan migrate:rollback && php artisan migrate

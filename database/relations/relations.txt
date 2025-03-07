@@ -1,0 +1,9 @@
+ belongsTo (Uno a Uno)
+ hasMany (Uno a Muchos)
+ belongsToMany (Muchos a Muchos)
+
+ Trabajo -> belongsTo ->Empleado
+ Empleado-> hasMany -> Trabajo
+ Trabajo -> belogsToMany->Tags
+ Tags->belogsToMany->Trabajo
+
