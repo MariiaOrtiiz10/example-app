@@ -65,3 +65,8 @@ Ahora para  poder obtener todos
 $tag->jobs()->get()
 //Para capturar el titulo
 $tag->jobs()->get()->pluck('title')
+
+para ver los paquetes que hemos traido a través de composer y 
+publish-> Quiero publicar cualquier recurso, ruta o archivo o vista relevante en mio carpeta de
+apluicación para poder controlarlos y editarlos
+php artisan vendor:publish

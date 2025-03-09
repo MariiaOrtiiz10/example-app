@@ -19,11 +19,27 @@ Route::get('/', function () {
 //     ]);
 // });
 
-//Solo dos consultas.
-//select * from job_listing
+ //Solo dos consultas.
+ //select * from job_listing
 //slect * from employer where employers.id in (1,2,, ...ids)
+// Route::get('/jobs', function () {
+//     $jobs = Trabajo::with('employer')->get();
+//     return view('jobs',[
+//         'jobs' => $jobs
+//     ]);
+// });
+
+//Pagination, en el parametro se pone el nuemro de registros que se quieren mostrar.
+// Route::get('/jobs', function () {
+//     $jobs = Trabajo::with('employer')->simplePaginate(4);
+//     return view('jobs',[
+//         'jobs' => $jobs
+//     ]);
+// });
+
+//Paginacion por cursor
 Route::get('/jobs', function () {
-    $jobs = Trabajo::with('employer')->get();
+    $jobs = Trabajo::with('employer')->cursorPaginate(4);
     return view('jobs',[
         'jobs' => $jobs
     ]);

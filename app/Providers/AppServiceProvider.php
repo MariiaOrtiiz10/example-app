@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Providers;
+use Illuminate\Pagination\Paginator;
 
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    //ARCHIVO PARA CONFIGURAR LA APP COMO NECESITES
     /**
      * Register any application services.
      */
@@ -19,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        //Para configurar pagination
+        //Paginator::useBootstrapFive();
     }
 }
