@@ -70,3 +70,6 @@ para ver los paquetes que hemos traido a través de composer y
 publish-> Quiero publicar cualquier recurso, ruta o archivo o vista relevante en mio carpeta de
 apluicación para poder controlarlos y editarlos
 php artisan vendor:publish
+
+para sembrar la bbdd con registros
+php artisan db:seed

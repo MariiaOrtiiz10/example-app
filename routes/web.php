@@ -30,27 +30,34 @@ Route::get('/', function () {
 // });
 
 //Pagination, en el parametro se pone el nuemro de registros que se quieren mostrar.
+ Route::get('/jobs', function () {
+     $jobs = Trabajo::with('employer')->simplePaginate(4);
+     return view('jobs.jobs',[
+         'jobs' => $jobs
+     ]);
+ });
+
+//Paginacion por cursor
 // Route::get('/jobs', function () {
-//     $jobs = Trabajo::with('employer')->simplePaginate(4);
+//     $jobs = Trabajo::with('employer')->cursorPaginate(4);
 //     return view('jobs',[
 //         'jobs' => $jobs
 //     ]);
 // });
-
-//Paginacion por cursor
-Route::get('/jobs', function () {
-    $jobs = Trabajo::with('employer')->cursorPaginate(4);
-    return view('jobs',[
-        'jobs' => $jobs
+Route::get('/jobs/create', function () {
+    return view('jobs.createJob',[
+        
     ]);
 });
+
+
 
 Route::get('/jobs/{id}', function ($ID) {
       $job =  Trabajo::find($ID);   
       if (!$job) {
         abort(404); // Devuelve un error 404 si el trabajo no existe
     } 
-      return view('job',['job' => $job]);
+      return view('jobs.showJob',['job' => $job]);
 });
 
 Route::get('/contact', function () {
