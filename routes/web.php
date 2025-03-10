@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Trabajo;
+use Illuminate\Queue\Jobs\Job;
 use Illuminate\Support\Facades\Route;
 
 
@@ -31,7 +32,7 @@ Route::get('/', function () {
 
 //Pagination, en el parametro se pone el nuemro de registros que se quieren mostrar.
  Route::get('/jobs', function () {
-     $jobs = Trabajo::with('employer')->simplePaginate(4);
+     $jobs = Trabajo::with('employer')->latest()->simplePaginate(4);
      return view('jobs.jobs',[
          'jobs' => $jobs
      ]);
@@ -49,7 +50,14 @@ Route::get('/jobs/create', function () {
         
     ]);
 });
-
+    Route::post('/jobs', function () {
+       Trabajo::create([
+        'title' =>   request('title'),
+        'salary'=> request('salary'),
+        'employer_id'=> 1,
+       ]);
+       return redirect('/jobs');
+    });
 
 
 Route::get('/jobs/{id}', function ($ID) {
